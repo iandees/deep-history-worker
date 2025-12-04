@@ -1,6 +1,7 @@
 import type { OSMElement, CellInfo } from './types';
 
 const API_URL = 'https://api.openstreetmap.org/api/0.6';
+const USER_AGENT = 'deep-history-worker/1.0 (https://osm.mapki.com/history; https://github.com/iandees/deep-history-worker)';
 
 export class ElementDoesntExistException extends Error {
   url: string;
@@ -15,7 +16,11 @@ export class ElementDoesntExistException extends Error {
 
 async function fetchAndParseJson(urlSuffix: string): Promise<OSMElement[]> {
   const url = `${API_URL}${urlSuffix}`;
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': USER_AGENT,
+    },
+  });
 
   if (response.status === 404) {
     throw new ElementDoesntExistException(url, response.status);
