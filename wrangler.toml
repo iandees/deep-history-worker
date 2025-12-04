@@ -1,0 +1,16 @@
+name = "deep-history-worker"
+main = "src/index.ts"
+compatibility_date = "2024-12-03"
+
+# Static assets configuration
+[assets]
+directory = "./public"
+
+# Routes configuration for osm.mapki.com/history
+# Uncomment and configure after adding the domain in Cloudflare
+# routes = [
+#   { pattern = "osm.mapki.com/history/*", zone_name = "mapki.com" }
+# ]
+
+[observability]
+enabled = true
