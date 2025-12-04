@@ -7,10 +7,9 @@ compatibility_date = "2024-12-03"
 directory = "./public"
 
 # Routes configuration for osm.mapki.com/history
-# Uncomment and configure after adding the domain in Cloudflare
-# routes = [
-#   { pattern = "osm.mapki.com/history/*", zone_name = "mapki.com" }
-# ]
+[[routes]]
+pattern = "osm.mapki.com/history/*"
+zone_name = "mapki.com"
 
 [observability]
 enabled = true
